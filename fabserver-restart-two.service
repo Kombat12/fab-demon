@@ -1,0 +1,11 @@
+[Unit]
+Description=Restart server and broadcast message chat
+
+[Service]
+Type=oneshot
+ExecStart=tmux send -t eseya.0 'broadcast &c&lRebooting server in 1 minutes' ENTER
+ExecStart=sleep 60
+ExecStart=tmux send -t eseya.0 'stop' ENTER
+
+[Install]
+WantedBy=multi-user.target
